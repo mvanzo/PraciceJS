@@ -1,3 +1,4 @@
+// PLUS-MINUS RATIO problem - hackerrank
 function readLine(arr) {
     console.log(arr)
     let hash = {
@@ -23,4 +24,23 @@ function readLine(arr) {
 }
 
 const arr = [1, 1, 0, -1, -1]
-readLine(arr)
+// readLine(arr)
+
+function timeConversion(s){
+    if (s.substring(8) == 'AM' && s.substring(0, 2) == '12') {
+        let convert = (parseInt(s.substring(0, 2)) - 12).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+        return convert + s.substring(2, s.length -2)
+    } else if (s.substring(0,2) == '12' && s.substring(8) == 'PM') {
+        return s.substring(0, s.length-2)
+    }else if (s.substring(8) == 'PM') {
+        let convert = (parseInt(s.substring(0, 2)) + 12).toString()
+        return convert + s.substring(2, s.length-2)
+    } else if (s.substring(8) == 'AM') {
+        return s.substring(0, s.length-2)
+    } else {
+        return 'malformed data'
+    }
+}
+
+const time = "12:45:54PM"
+console.log(timeConversion(time))
