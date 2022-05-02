@@ -43,4 +43,32 @@ function timeConversion(s){
 }
 
 const time = "12:45:54PM"
-console.log(timeConversion(time))
+// console.log(timeConversion(time))
+
+let patterns = [
+    ['aba', 'red blue red', true],
+    ['abb', 'red blue red', false],
+]
+
+function patternChecker(patternA, patternB) {
+    // console.log('Pattern A', patternA)
+    // console.log('Pattern B', patternB)
+    patternB = patternB.split(' ')
+
+    const patternObj = {}
+
+    for (let i = 0; i < patternA.length; i++) {
+        
+        if (patternObj[patternA[i]] && patternObj[patternA[i]] !== patternB[i]) {
+            return false
+        }
+
+        patternObj[patternA[i]] = patternB[i]
+    }
+    console.log(patternObj)
+
+    return true
+}
+
+// console.log(patternChecker(patterns[0][0], patterns[0][1]))
+console.log(patternChecker(patterns[1][0], patterns[1][1]))
