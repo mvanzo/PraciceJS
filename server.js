@@ -77,11 +77,67 @@ function patternChecker(patternA, patternB) {
 // REST PARAMETERS
 function add(...nums) {
     let total = 0
-    console.log(nums)
+    // console.log(nums)
     for (let i=0; i<nums.length; i++) {
         total+=nums[i]
     }
     return total
 }
 const result = add(5, 10, 20)
-console.log(result)
+// console.log(result)
+
+
+// PROBLEM -- REMOVE STRING SPACES
+function noSpace(x) {
+    let spacelessString = x.split('').filter((letter)=> {
+        if (letter !== ' ') {
+            return true
+        }
+    })
+    return spacelessString.join('')
+}
+
+function noSpace(x) {
+    return x.split(' ').join('')
+}
+
+// console.log(noSpace('this is the string'))
+
+
+
+// PROBLEM - find word with highest value
+function high(str) {
+    str = str.split(' ')
+    highWord = {}
+    let wordsObj = {}
+    let score = 0
+
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    const alphObj = {}
+    for (let i=0; i<alphabet.length; i++) {
+        alphObj[alphabet[i]] = i+1
+    }
+
+    // console.log(str)
+    for (let i = 0; i < str.length; i++) {
+        // console.log(str[i])
+        for (let j = 0; j < str[i].length; j++) {
+            // console.log(str[i][j])
+            score += alphObj[str[i][j]]
+            // console.log(highWord)
+        }
+        wordsObj[str[i]] = score
+        score = 0
+    }
+    console.log(wordsObj)
+    const values = Object.values(wordsObj)
+    const maxValue = Math.max(...values)
+    // console.log(maxValue)
+    return Object.keys(wordsObj).find(key=> wordsObj[key] === maxValue)
+
+}
+
+// console.log(high('take me to semnyak'))
+console.log(high('man i need a taxi up to ubud'))
+
+// console.log(high('what time are we climbing up the volcano'))
