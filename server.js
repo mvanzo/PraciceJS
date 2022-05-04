@@ -71,4 +71,17 @@ function patternChecker(patternA, patternB) {
 }
 
 // console.log(patternChecker(patterns[0][0], patterns[0][1]))
-console.log(patternChecker(patterns[1][0], patterns[1][1]))
+// console.log(patternChecker(patterns[1][0], patterns[1][1]))
+
+
+// REST PARAMETERS
+function add(...nums) {
+    let total = 0
+    console.log(nums)
+    for (let i=0; i<nums.length; i++) {
+        total+=nums[i]
+    }
+    return total
+}
+const result = add(5, 10, 20)
+console.log(result)
