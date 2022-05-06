@@ -134,10 +134,29 @@ function high(str) {
     const maxValue = Math.max(...values)
     // console.log(maxValue)
     return Object.keys(wordsObj).find(key=> wordsObj[key] === maxValue)
-
 }
 
 // console.log(high('take me to semnyak'))
-console.log(high('man i need a taxi up to ubud'))
+// console.log(high('man i need a taxi up to ubud'))
 
 // console.log(high('what time are we climbing up the volcano'))
+
+
+// List of non-negative integers and strings and returns a new list with the strings filtered out.
+
+// function filter_list(l) {
+//     let filteredArr = l.filter((el)=> {
+//         if (typeof el == 'number') {
+//             return true
+//         }
+//     })
+//     return filteredArr
+// }
+
+function filter_list(l) {
+    return l.filter(el=>typeof el == 'number')
+}
+ 
+console.log(filter_list([1,2,'a','b'])) //== [1,2])
+// console.log(filter_list([1,'a','b',0,15]) == [1,0,15])
+// console.log(filter_list([1,2,'aasf','1','123',123]) == [1,2,123])
